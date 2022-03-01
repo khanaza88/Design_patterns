@@ -148,6 +148,7 @@
     <ClInclude Include="command.h" />
     <ClInclude Include="decorator.h" />
     <ClInclude Include="observer.h" />
+    <ClInclude Include="state.h" />
     <ClInclude Include="Template.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
