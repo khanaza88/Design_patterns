@@ -3,10 +3,12 @@
 #include<memory>
 #include<vector>
 #include<algorithm>
+#include<cassert>
 
 class observer {
 public:
 	virtual void update(int) = 0;
+	virtual ~observer() {}
 };
 
 
@@ -16,15 +18,16 @@ private:
 	int id;
 	int temp;
 public:
-	explicit weatherApp(int  id_){
+	explicit weatherApp(int  id_) noexcept{
 		id = id_;
 		temp = 0;
 	}
 
-	virtual void update(int t_) override{
+	void update(int t_) override{
 		temp = t_;
 		std::cout << "I am weather app; current temp is " << temp << std::endl;
 	}
+	~weatherApp() {};
 };
 
 
@@ -37,21 +40,19 @@ public:
 
 class weatherstation : public subject {
 public:
-	virtual void subscribe(std::shared_ptr<observer>& o) override {
+	void subscribe(std::shared_ptr<observer>& o) override {
 		observers.push_back(o);
 		std::cout << "subscribed"<<std::endl;
 	}
-	virtual void unsubscribe(std::shared_ptr<observer>&o) override {
-		std::remove(observers.begin(), observers.end(), o);
+	void unsubscribe(std::shared_ptr<observer>&o) override {
+		(void)std::remove(observers.begin(), observers.end(), o)=
 		std::cout << "unsubscribed" <<std::endl;
 	}
-	virtual void notify() override {
+	void notify() override {
 		for (auto& ob : observers) {
-			int t = 100; // or call the function to get the value
 			ob->update(100);
 		}
 	}
-
 
 private:
 	int temp;
