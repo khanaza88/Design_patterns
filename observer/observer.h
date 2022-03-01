@@ -33,18 +33,18 @@ public:
 
 class subject { 
 public:
-	virtual void subscribe(std::shared_ptr<observer>&) = 0;
-	virtual void unsubscribe(std::shared_ptr<observer>&) = 0;
+	virtual void subscribe(std::shared_ptr<observer>) = 0;
+	virtual void unsubscribe(std::shared_ptr<observer>) = 0;
 	virtual void notify() = 0;
 };
 
 class weatherstation : public subject {
 public:
-	void subscribe(std::shared_ptr<observer>& o) override {
+	void subscribe(std::shared_ptr<observer> o) override {
 		observers.push_back(o);
 		std::cout << "subscribed"<<std::endl;
 	}
-	void unsubscribe(std::shared_ptr<observer>&o) override {
+	void unsubscribe(std::shared_ptr<observer>o) override {
 		(void)std::remove(observers.begin(), observers.end(), o);
 		std::cout << "unsubscribed" <<std::endl;
 	}
