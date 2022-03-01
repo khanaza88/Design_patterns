@@ -5,8 +5,9 @@
 #include"Template.h"
 
 int observer_main() {
-	weatherstation w;
-	std::shared_ptr<observer> app = std::make_shared<weatherApp>(1);
+	weatherstation w{};
+	constexpr int id{ 1 };
+	std::shared_ptr<observer> app = std::make_shared<weatherApp>(id);
 	w.subscribe(app);
 	w.notify();
 	w.unsubscribe(app);
