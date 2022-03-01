@@ -45,7 +45,7 @@ public:
 		std::cout << "subscribed"<<std::endl;
 	}
 	void unsubscribe(std::shared_ptr<observer>&o) override {
-		(void)std::remove(observers.begin(), observers.end(), o)=
+		(void)std::remove(observers.begin(), observers.end(), o);
 		std::cout << "unsubscribed" <<std::endl;
 	}
 	void notify() override {
