@@ -1,3 +1,4 @@
+
 #include"observer.h"
 #include"decorator.h"
 #include"command.h"
