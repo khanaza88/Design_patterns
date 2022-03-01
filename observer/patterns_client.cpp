@@ -2,6 +2,7 @@
 #include"decorator.h"
 #include"command.h"
 #include"adapter.h"
+#include"Template.h"
 
 int observer_main() {
 	weatherstation w;
@@ -37,8 +38,17 @@ void adapter_main() {
 	const Duck&& d = TurkeyAdapter(wt);
 	d.quack(); // should print gobble 
 }
+void template_main() {
+	PrepareDrink &&chai = PrepareChai();
+	PrepareDrink &&coffee= PrepareCoffee();
+	std::shared_ptr<PrepareDrink> spChai = std::make_shared<PrepareChai>();
+	chai.prepare_drink();
+	coffee.prepare_drink();
+	spChai->prepare_drink();
+}
 int main()
 {
 	//command_main();
-	adapter_main();
+	//adapter_main();
+	template_main();
 }

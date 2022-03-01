@@ -41,10 +41,11 @@ class TurkeyAdapter : public Duck {
 private:
 	const Turkey& t;
 public:
-	TurkeyAdapter(Turkey& t_) noexcept:t{t_}{}
+	TurkeyAdapter(Turkey& t_) noexcept :t{ t_ } {}
 	//implement the pure Duck interface
 	void quack() const override {
 		t.gobble();
 	}
 	virtual ~TurkeyAdapter() = default;
 };
+
