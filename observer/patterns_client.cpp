@@ -1,5 +1,6 @@
 #include"observer.h"
 #include"decorator.h"
+#include"command.h"
 
 int observer_main() {
 	weatherstation w;
@@ -19,7 +20,16 @@ void decorator_main() {
 	std::cout << "cost of coffee + sugar + cream : " << bsc->cost()<<std::endl;
 
 }
+
+void command_main() {
+	FanOn f1 = Fan();
+	FanOff f2 = Fan();
+	execute& e1(f1);
+	execute& e2(f2);
+	e1.run();
+	e2.run();
+}
 int main()
 {
-	decorator_main();
+	command_main();
 }

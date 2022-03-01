@@ -21,6 +21,7 @@ public:
 };
 
 class tea : public beverage {
+public:
 	double cost() const noexcept override {
 		return 2;
 	}
@@ -31,7 +32,7 @@ class cream : public beverage{
 private:
 	std::shared_ptr<beverage> b;
 public:
-	cream(std::shared_ptr<beverage> b_) {
+	cream(std::shared_ptr<beverage> b_)noexcept {
 		b = b_;
 	}
 	
@@ -46,7 +47,7 @@ class sugar : public beverage
 private:
 	std::shared_ptr<beverage> b;
 public:
-	sugar(std::shared_ptr<beverage> b_) {
+	sugar(std::shared_ptr<beverage> b_) noexcept{
 		b = b_;
 	}
 	

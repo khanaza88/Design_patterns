@@ -8,7 +8,7 @@
 class observer {
 public:
 	virtual void update(int) = 0;
-	virtual ~observer() {}
+	virtual ~observer() = default;
 };
 
 
@@ -27,7 +27,7 @@ public:
 		temp = t_;
 		std::cout << "I am weather app; current temp is " << temp << std::endl;
 	}
-	~weatherApp() {};
+	virtual ~weatherApp() = default;
 };
 
 
@@ -55,6 +55,6 @@ public:
 	}
 	virtual ~weatherstation() = default;
 private:
-	int temp;
+	int temp = 0;
 	std::vector<std::shared_ptr<observer>> observers;
 };
