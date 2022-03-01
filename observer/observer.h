@@ -15,8 +15,8 @@ public:
 class weatherApp : public observer
 {
 private:
-	int id;
-	int temp;
+	int id = 0;
+	int temp =0;
 public:
 	explicit weatherApp(int  id_) noexcept{
 		id = id_;
@@ -53,7 +53,7 @@ public:
 			ob->update(100);
 		}
 	}
-
+	virtual ~weatherstation() = default;
 private:
 	int temp;
 	std::vector<std::shared_ptr<observer>> observers;
