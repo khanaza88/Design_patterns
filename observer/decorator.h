@@ -7,13 +7,13 @@
 
 class beverage {
 public:
-	virtual float cost() const= 0;
+	virtual double cost() const noexcept	= 0;
 	virtual ~beverage() = default;
 };
 
 class coffee : public beverage {
 public:
-	float cost() const override {
+	double cost() const noexcept override {
 		return 1;
 	}
 	virtual ~coffee() = default;
@@ -21,7 +21,7 @@ public:
 };
 
 class tea : public beverage {
-	float cost() const override {
+	double cost() const noexcept override {
 		return 2;
 	}
 	virtual ~tea() = default;
@@ -35,7 +35,7 @@ public:
 		b = b_;
 	}
 	
-	float cost() const override {
+	double cost() const noexcept override {
 		return (0.5 + b->cost());
 	}
 	virtual ~cream() = default;
@@ -50,7 +50,7 @@ public:
 		b = b_;
 	}
 	
-	float cost() const override {
+	double cost() const noexcept override {
 		return (0.6 + b->cost());
 	}
 
