@@ -1,4 +1,5 @@
 #pragma once
+//ok
 #include<iostream>
 #include<memory>
 #include<vector>
