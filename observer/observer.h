@@ -1,3 +1,4 @@
+#pragma once
 #include<iostream>
 #include<memory>
 #include<vector>
@@ -56,12 +57,3 @@ private:
 	int temp;
 	std::vector<std::shared_ptr<observer>> observers;
 };
-
-int main() {
-	weatherstation w;
-	std::shared_ptr<observer> app = std::make_shared<weatherApp>(1);
-	w.subscribe(app);
-	w.notify();
-	w.unsubscribe(app);
-	return 0;
-}
