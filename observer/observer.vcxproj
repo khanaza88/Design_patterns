@@ -144,6 +144,7 @@
     <ClCompile Include="patterns_client.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="adapter.h" />
     <ClInclude Include="command.h" />
     <ClInclude Include="decorator.h" />
     <ClInclude Include="observer.h" />

@@ -1,6 +1,7 @@
 #include"observer.h"
 #include"decorator.h"
 #include"command.h"
+#include"adapter.h"
 
 int observer_main() {
 	weatherstation w;
@@ -29,7 +30,15 @@ void command_main() {
 	e1.run();
 	e2.run();
 }
+
+void adapter_main() {
+	// create a turkey
+	Turkey&& wt = WildTurkey();
+	const Duck&& d = TurkeyAdapter(wt);
+	d.quack(); // should print gobble 
+}
 int main()
 {
-	command_main();
+	//command_main();
+	adapter_main();
 }
