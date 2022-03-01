@@ -1,4 +1,3 @@
-
 #include"observer.h"
 #include"decorator.h"
 #include"command.h"
@@ -22,7 +21,6 @@ void decorator_main() {
 	std::cout << "cost of coffee + sugar : " << bs->cost()<<std::endl;
 	std::shared_ptr<beverage> bsc = std::make_shared<cream>(bs);
 	std::cout << "cost of coffee + sugar + cream : " << bsc->cost()<<std::endl;
-
 }
 
 void command_main() {
